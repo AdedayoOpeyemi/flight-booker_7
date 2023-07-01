@@ -3,6 +3,6 @@ Rails.application.routes.draw do
   root to: "flights#index"
 
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
-  get 'flights/index', to: 'flights#index'
-  get 'flights/search', to: 'flights#index'
+  get 'flights', to: 'flights#index'
+  get 'flights/search', to: 'flights#search'
 end
