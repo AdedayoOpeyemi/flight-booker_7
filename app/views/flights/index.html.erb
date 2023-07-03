@@ -13,6 +13,17 @@
         value_method: :code,
         prompt: "Select arrival airport" %>
 
+    <%= f.input :passenger_count,
+        collection: 0..20,
+        # label_method: :display_name_with_code,
+        # value_method: :code,
+        prompt: "Number of passengers" %>
+    
+    <%= f.input :date,
+        as: :date,
+        min: Date.today %>
+
+
     <%= f.submit "Find", class: "btn btn-primary" %>
 <% end %>
 
