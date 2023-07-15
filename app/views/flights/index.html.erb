@@ -1,6 +1,7 @@
 <h1>Flights#index</h1>
 
 <%= simple_form_for :search, url: flights_search_path, method: "GET", html: { class: 'form-inline', novalidate: true } do |f| %>
+    
     <%= f.input :departure_airport,
         collection: @airports,
         label_method: :display_name_with_code,
@@ -19,9 +20,18 @@
         # value_method: :code,
         prompt: "Number of passengers" %>
     
-    <%= f.input :date,
+    <%# <%= f.input :date,
         as: :date,
-        min: Date.today %>
+         %> %>
+    
+    <%= f.input :date,
+        collection: @days,
+        # start_date: Date.now,
+        # start_year: Date.current.year,
+        # end_year: Date.current.year + 10,
+        # order: [:day, :month, :year],
+        # disabled: { day: true, month: true, year: true },
+        include_blank: true %>
 
 
     <%= f.submit "Find", class: "btn btn-primary" %>
