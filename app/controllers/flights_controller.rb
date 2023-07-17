@@ -7,11 +7,13 @@ class FlightsController < ApplicationController
   end
 
   def search
-    @search = params[:search]
-    departure_code = @search[:departure_airport]
-    arrival_code = @search[:arrival_airport]
-    date = @search[:date]
-    passenger_count= @search[:passenger_count]
+    @airports = Airport.all.order(:name)
+    @days = Flight.pluck(:start).map { |date| date.strftime('%d/%m/%Y') }.uniq
+    @search_data = params[:search]
+    departure_code = @search_data[:departure_airport]
+    arrival_code = @search_data[:arrival_airport]
+    date = @search_data[:date]
+    passenger_count= @search_data[:passenger_count]
 
     start_date = date.to_datetime.beginning_of_day
     end_date = date.to_datetime.end_of_day
@@ -23,6 +25,6 @@ class FlightsController < ApplicationController
                             # num_tickets: num_tickets
                           )
     # Render the flights in the index view
-    render 'index'
+    # render 'index'
   end
 end

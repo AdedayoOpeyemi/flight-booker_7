@@ -3,21 +3,25 @@
     collection: airports,
     label_method: :display_name_with_code,
     value_method: :code,
-    prompt: "Select departure airport" %>
+    prompt: "Select departure airport", 
+    selected: (@search_data.present? ? @search_data[:departure_airport] : nil) %>
 
     <%= f.input :arrival_airport,
     collection: airports,
     label_method: :display_name_with_code,
     value_method: :code,
-    prompt: "Select arrival airport" %>
+    prompt: "Select arrival airport",
+    selected: (@search_data.present? ? @search_data[:arrival_airport] : nil) %>
 
     <%= f.input :passenger_count,
     collection: 0..20,
-    prompt: "Number of passengers" %>
+    prompt: "Number of passengers",
+    selected: (@search_data.present? ? @search_data[:passenger_count] : nil)  %>
 
     <%= f.input :date,
     collection: days,
-    include_blank: true %>
+    include_blank: true,
+    selected: (@search_data.present? ? @search_data[:date] : nil)  %>
 
     <%= f.submit "Find", class: "btn btn-primary" %>
 <% end %>
