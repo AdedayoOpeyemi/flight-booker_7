@@ -13,8 +13,4 @@ class Flight < ApplicationRecord
   def departure_time_formatted
     departure_time.strftime("%l:%M %P")
   end
-
-  # def event_date_formatted
-  #   event_date.strftime("%m/%d/%Y")
-  # end
 end

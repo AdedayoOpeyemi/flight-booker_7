@@ -1,2 +1,10 @@
 <h1>Flights#search</h1>
 <p>Find me in app/views/flights/search.html.erb</p>
+
+<>
+<h1>Flights</h1>
+<% if @flights.present? %>
+    <%= render 'result_form', locals: {flights: @flights} %>
+<% else %>
+  <p>No flights match your search</p>
+<% end %>

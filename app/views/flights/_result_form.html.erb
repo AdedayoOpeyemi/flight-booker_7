@@ -1,0 +1,10 @@
+
+<h1>Flights</h1>
+<% if flights.present? %>
+    <% flights.each do |flight| %>
+    <p>Flight ID: <%= flight.id %></p>
+    <p>Departure Code: <%= flight.departure_airport.name %></p>
+    <p>Arrival Code: <%= flight.arrival_airport.name %></p>
+    <!-- Add more flight details as needed -->
+    <% end %>
+<% end %>
