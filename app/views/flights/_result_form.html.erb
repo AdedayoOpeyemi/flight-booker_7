@@ -8,3 +8,17 @@
     <!-- Add more flight details as needed -->
     <% end %>
 <% end %>
+
+<%= simple_form_for :flight_selection, url: bookings_new_path, method: :get do |f| %>
+  <h3>Flight Search Results</h3>
+  <% flights.each do |flight| %>
+    <div class="flight-result">
+      <%= f.radio_button :flight_id, flight.id %>
+      <%= label_tag "flight_#{flight.id}", "#{flight.departure_airport.code} to #{flight.arrival_airport.code} on #{flight.start}" %>
+    </div>
+  <% end %>
+
+  <%= f.hidden_field :passenger_count, value: params[:search][:passenger_count] %>
+
+  <%= f.button :submit, "Select flight" %>
+<% end %>
