@@ -1,6 +1,8 @@
 class Flight < ApplicationRecord
   belongs_to :departure_airport, class_name: 'Airport'
   belongs_to :arrival_airport, class_name: 'Airport'
+  has_many :bookings
+  has_many :passengers, through: :bookings
 
   def self.distinct_dates
     distinct_dates = Flight.select("DATE(datetime) as date").distinct.pluck(:start).strftime("%m/%d/%Y")
