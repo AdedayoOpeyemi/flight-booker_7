@@ -1,7 +1,6 @@
-# README
+# Flight Boker
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+This is a flight booker application that involves the flow process of a potential traveller searching for flights, selecting appropriate flight, adding passenger details and completing a booking.
 
 Things you may want to cover:
 

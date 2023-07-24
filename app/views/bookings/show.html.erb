@@ -6,6 +6,9 @@
 <p><strong>Flight Number:</strong> <%= @booking.flight.id %></p>
 <p><strong>Origin:</strong> <%= @booking.flight.departure_airport.code %></p>
 <p><strong>Destination:</strong> <%= @booking.flight.arrival_airport.code %></p>
+<p><strong>Departure date:</strong> <%= @booking.flight.start.strftime("%Y/%m/%d") %></p>
+<p><strong>Departure time:</strong> <%= @booking.flight.start.strftime("%H:%M ") %></p>
+<p><strong>Flight duration:</strong> <%= distance_of_time_in_words(@booking.flight.duration.minutes) %></p>
 
 <h2>Passenger Details:</h2>
 <% @booking.passengers.each do |passenger| %>
