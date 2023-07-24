@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   get 'bookings/new'
+  post 'bookings/create'
+  get '/bookings/:id', to: 'bookings#show', as: 'booking'
   # Defines the root path route ("/")
   root to: "flights#index"
 
