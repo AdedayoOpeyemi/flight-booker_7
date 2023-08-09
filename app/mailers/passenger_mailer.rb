@@ -1,11 +1,9 @@
 class PassengerMailer < ApplicationMailer
-    def booking_confirmation(booking)
+    def booking_confirmation(passenger, booking)
         @confirmation = "Booking confirmed"
+        @booking = booking
 
-
-        booking.passengers.each do |passenger|
-            @passenger = passenger.name
-            mail to: passenger.email, subject: "Booking Confirmation email"
-        end
+        @passenger = passenger.name
+        mail to: passenger.email, subject: "Booking Confirmation email"
     end
 end

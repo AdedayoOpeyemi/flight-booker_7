@@ -2,6 +2,7 @@
 class PassengerMailerPreview < ActionMailer::Preview
     def booking_confirmation
         booking = Booking.last
-        PassengerMailer.booking_confirmation(booking)
+        passenger = booking.passengers.first
+        PassengerMailer.booking_confirmation(passenger, booking)
     end
 end

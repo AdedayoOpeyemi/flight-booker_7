@@ -16,8 +16,10 @@ class BookingsController < ApplicationController
       booking_id = @booking.id
       flight_id = @flight.id
 
-      PassengerMailer.booking_confirmation(@booking).deliver_now
+      @booking.passengers.each do |passenger|
+        PassengerMailer.booking_confirmation(passenger, @booking).deliver_now
       # Handle successful booking creation
+      end
       redirect_to @booking
     else
       # Handle validation errors
